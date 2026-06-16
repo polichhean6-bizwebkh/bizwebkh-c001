@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="km">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,8 @@
   <title>សាលាអាយលើននីង អន្តរជាតិ | iLearning International Academy</title>
   <meta name="description" content="សាលាអាយលើននីង អន្តរជាតិ — ចំណេះទូទៅខ្មែរ កម្មវិធីភាសាអង់គ្លេស Oxford កុំព្យូទ័រ និងសកម្មភាពសិស្ស។ ចុះឈ្មោះឥតគិតថ្លៃ · ទទួលស្គាល់ដោយក្រសួងអប់រំ។" />
   <style>
-    :root {
+    :root,
+    body.theme-light {
       --navy: #063a76;
       --blue: #0787db;
       --sky: #31b8ff;
@@ -18,6 +19,37 @@
       --white: #ffffff;
       --shadow: 0 24px 70px rgba(6, 58, 118, 0.14);
       --max: 1180px;
+      --page-bg: #ffffff;
+      --section-bg: #ffffff;
+      --section-alt-bg: #f3f8fd;
+      --card-bg: #ffffff;
+      --text-heading: #063a76;
+      --text-body: #102033;
+      --text-muted: #5b6676;
+      --border-soft: #d7e6f3;
+      --nav-bg: rgba(255, 255, 255, 0.94);
+      --nav-text: #063a76;
+      --input-bg: #ffffff;
+      --input-text: #102033;
+      --input-placeholder: #7b8798;
+      --mobile-menu-bg: rgba(6, 58, 118, 0.98);
+    }
+
+    body.theme-dark {
+      --page-bg: #061327;
+      --section-bg: #071a34;
+      --section-alt-bg: #0b2448;
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --text-heading: #ffffff;
+      --text-body: rgba(255, 255, 255, 0.9);
+      --text-muted: rgba(255, 255, 255, 0.74);
+      --border-soft: rgba(255, 255, 255, 0.14);
+      --nav-bg: rgba(6, 19, 39, 0.94);
+      --nav-text: #ffffff;
+      --input-bg: rgba(255, 255, 255, 0.08);
+      --input-text: #ffffff;
+      --input-placeholder: rgba(255, 255, 255, 0.62);
+      --mobile-menu-bg: rgba(3, 10, 24, 0.98);
     }
 
     * {
@@ -25,13 +57,17 @@
     }
 
     html {
+      max-width: 100%;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--white);
+      max-width: 100%;
+      overflow-x: hidden;
+      color: var(--text-body);
+      background: var(--page-bg);
       font-family: "Noto Sans Khmer", "Khmer OS Battambang", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.8;
     }
@@ -71,10 +107,11 @@
     .section {
       padding: 96px 0;
       position: relative;
+      background: var(--section-bg);
     }
 
     .section.alt {
-      background: var(--soft);
+      background: var(--section-alt-bg);
     }
 
     .eyebrow {
@@ -442,7 +479,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(90deg, rgba(6, 58, 118, 0.92), rgba(6, 58, 118, 0.6) 48%, rgba(6, 58, 118, 0.16)), url("Client/C001%20-%20IIA%20Edu/school%20building%20photo.jpg");
+      background-image: linear-gradient(90deg, rgba(6, 58, 118, 0.9), rgba(6, 58, 118, 0.58) 50%, rgba(6, 58, 118, 0.22)), url("./additional image 08.jpg");
       background-position: center;
       background-size: cover;
       transform: scale(1.04);
@@ -534,6 +571,7 @@
       aspect-ratio: 4 / 3;
       object-fit: cover;
       border-radius: 22px;
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
     }
 
     .hero-card-body {
@@ -601,6 +639,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
+      transition: transform 350ms ease, filter 350ms ease;
     }
 
     .program-media--building img {
@@ -636,6 +676,11 @@
       transform: translateY(-5px);
       border-color: rgba(7, 135, 219, 0.28);
       box-shadow: 0 24px 60px rgba(6, 58, 118, 0.12);
+    }
+
+    .program-card:hover .program-media img {
+      transform: scale(1.04);
+      filter: brightness(1.06) contrast(1.08) saturate(1.12);
     }
 
     .program-content {
@@ -700,13 +745,15 @@
       object-fit: cover;
       border-radius: 34px;
       box-shadow: var(--shadow);
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
     }
 
     .community-image img {
       width: 100%;
-      height: auto;
-      aspect-ratio: unset;
-      object-fit: contain;
+      height: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
       border-radius: 24px;
       box-shadow: var(--shadow);
     }
@@ -825,6 +872,63 @@
       gap: 20px;
     }
 
+    .info-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .info-icon-card {
+      padding: 22px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(15, 35, 70, 0.08);
+      box-shadow: 0 14px 34px rgba(15, 35, 70, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      color: var(--blue);
+      background: rgba(7, 135, 219, 0.1);
+    }
+
+    .info-icon svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .info-icon-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .info-icon-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .info-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--blue);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .info-card-link svg {
+      width: 15px;
+      height: 15px;
+    }
+
     .gallery-item,
     .news-card {
       overflow: hidden;
@@ -852,6 +956,7 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
       transition: transform 450ms ease;
     }
 
@@ -877,6 +982,13 @@
       margin-top: 3px;
       color: var(--muted);
       font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .gallery-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
       font-weight: 800;
     }
 
@@ -986,9 +1098,98 @@
 
     .news-card img {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: contain;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
       background: #f7f9fc;
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
+    }
+
+    .poster-downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .poster-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(15, 35, 70, 0.12);
+      border: 1px solid rgba(15, 35, 70, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .poster-card:focus-within,
+    .poster-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(15, 35, 70, .16);
+    }
+
+    .poster-image-link {
+      display: block;
+      cursor: pointer;
+    }
+
+    .poster-thumb {
+      height: 320px;
+      background: #f4f8ff;
+      padding: 12px;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .poster-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(1.03) contrast(1.05) saturate(1.06);
+      transition: transform .35s ease, filter .35s ease;
+    }
+
+    .poster-image-link:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.04) contrast(1.06) saturate(1.08);
+    }
+
+    .poster-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .poster-content h3 {
+      margin-bottom: 0;
+      font-size: 1.08rem;
+    }
+
+    .poster-content p {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .poster-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .poster-actions .btn {
+      flex: 1 1 140px;
+      min-height: 46px;
+      justify-content: center;
+    }
+
+    .poster-actions .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(7, 135, 219, 0.24);
     }
 
     .news-body {
@@ -1154,6 +1355,18 @@
     .form-note {
       margin: 0;
       font-size: 0.86rem;
+    }
+
+    .form-meta {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-demo-note {
+      margin: 0;
+      color: #5c6f8b;
+      font-size: 0.78rem;
+      line-height: 1.5;
     }
 
     .site-footer {
@@ -1346,8 +1559,10 @@
       .mini-card-grid,
       .gallery-grid,
       .news-grid,
+      .info-icon-grid,
       .footer-grid,
-      .vision-mission-grid {
+      .vision-mission-grid,
+      .poster-downloads-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1391,20 +1606,69 @@
         display: none;
       }
 
+      .theme-toggle {
+        width: 42px;
+        min-height: 42px;
+        padding: 0;
+        justify-content: center;
+      }
+
+      .theme-label {
+        display: none;
+      }
+
       .hero {
         min-height: auto;
       }
 
       .hero-bg {
-        background-image: linear-gradient(180deg, rgba(6, 58, 118, 0.92), rgba(6, 58, 118, 0.64)), url("Client/C001%20-%20IIA%20Edu/school%20building%20photo.jpg");
+        background-image: linear-gradient(180deg, rgba(6, 58, 118, 0.92), rgba(6, 58, 118, 0.64)), url("./additional image 08.jpg");
       }
 
       .hero-inner {
-        padding: 86px 0 48px;
+        gap: 22px;
+        padding: 44px 0 34px;
       }
 
       h1 {
-        font-size: clamp(2.6rem, 13vw, 4.2rem);
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 9.5vw, 3rem);
+        line-height: 1.15;
+      }
+
+      .hero-copy {
+        display: grid;
+        gap: 14px;
+      }
+
+      .hero-copy .eyebrow {
+        margin-bottom: 0;
+      }
+
+      .hero-copy p {
+        margin-bottom: 14px;
+        font-size: 0.96rem;
+        line-height: 1.65;
+      }
+
+      .promo-badge {
+        margin: 14px 0;
+        padding: 12px 14px;
+      }
+
+      .hero-trust-chips {
+        margin-bottom: 10px;
+      }
+
+      .hero-actions {
+        gap: 10px;
+        margin-top: 16px;
+        margin-bottom: 10px;
+      }
+
+      .hero-actions .btn {
+        min-height: 44px;
+        padding: 0 16px;
       }
 
       .hero-actions,
@@ -1420,9 +1684,61 @@
       .mini-card-grid,
       .gallery-grid,
       .news-grid,
+      .info-icon-grid,
       .inquiry-form,
-      .footer-grid {
+      .footer-grid,
+      .poster-downloads-grid {
         grid-template-columns: 1fr;
+      }
+
+      .info-icon-card {
+        padding: 18px;
+      }
+
+      .hero-stats {
+        margin-top: 14px;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-stat {
+        padding: 12px 14px;
+      }
+
+      .hero-stat strong {
+        font-size: 1.35rem;
+      }
+
+      .hero-stat span {
+        font-size: 0.84rem;
+      }
+
+      .hero-card {
+        margin-top: 8px;
+        padding: 16px;
+        border-radius: 22px;
+      }
+
+      .hero-card img {
+        max-height: 150px;
+        object-fit: cover;
+      }
+
+      .container,
+      .hero-inner,
+      .section,
+      .request-panel,
+      .poster-card,
+      .info-icon-card,
+      .program-card,
+      .gallery-item,
+      .btn,
+      .floating-cta {
+        max-width: 100%;
+      }
+
+      .poster-actions .btn {
+        flex: 1 1 100%;
       }
 
       .image-badge {
@@ -1486,6 +1802,22 @@
 
       .poster-lightbox-stage img {
         max-height: calc(100vh - 220px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-trust-chips {
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .trust-chip {
+        padding: 7px 11px;
+        font-size: 0.74rem;
+      }
+
+      .hero-card {
+        display: none;
       }
     }
 
@@ -1557,6 +1889,303 @@
       color: var(--navy);
     }
 
+    .theme-toggle {
+      min-height: 40px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      background: var(--card-bg);
+      color: var(--nav-text);
+      font-size: 0.8rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease, transform 180ms ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(7, 135, 219, 0.42);
+      box-shadow: 0 10px 24px rgba(6, 58, 118, 0.16);
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(7, 135, 219, 0.14);
+      color: var(--blue);
+      line-height: 1;
+      font-size: 0.9rem;
+    }
+
+    .theme-label {
+      line-height: 1;
+    }
+
+    body,
+    .site-header,
+    .section,
+    .program-card,
+    .info-icon-card,
+    .poster-card,
+    .tuition-card,
+    .news-card,
+    .gallery-item,
+    .request-panel,
+    input,
+    select,
+    textarea,
+    .site-footer,
+    .mobile-menu {
+      transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    h2,
+    h3,
+    .section-title,
+    .program-content h3,
+    .info-icon-card h3,
+    .poster-card h3,
+    .tuition-card h3,
+    .vision-box h3,
+    .gallery-caption,
+    .director-message blockquote,
+    .image-badge strong,
+    .program-tag,
+    .poster-lightbox-title,
+    .lightbox-close,
+    .toast strong,
+    label {
+      color: var(--text-heading);
+    }
+
+    p,
+    .program-list,
+    .mission-list,
+    .tuition-card ul,
+    .poster-content p,
+    .news-body p,
+    .form-note,
+    .info-icon-card p {
+      color: var(--text-body);
+    }
+
+    .lead,
+    .section-head p,
+    .form-demo-note,
+    .gallery-note,
+    .news-date,
+    .tuition-note,
+    .brand small,
+    .image-badge span,
+    .toast span {
+      color: var(--text-muted);
+    }
+
+    .site-header {
+      background: var(--nav-bg);
+      border-bottom-color: var(--border-soft);
+    }
+
+    .brand,
+    .nav-links a {
+      color: var(--nav-text);
+    }
+
+    .nav-links a:hover {
+      color: var(--nav-text);
+      background: var(--section-alt-bg);
+    }
+
+    .brand-mark {
+      border-color: rgba(7, 135, 219, 0.25);
+      background: var(--card-bg);
+    }
+
+    .lang-switcher {
+      border-color: var(--border-soft);
+      background: var(--card-bg);
+    }
+
+    .lang-btn {
+      color: var(--text-muted);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: #fff;
+    }
+
+    .menu-toggle,
+    .close-menu {
+      border-color: var(--border-soft);
+      background: var(--card-bg);
+      color: var(--nav-text);
+    }
+
+    .mobile-menu {
+      background: var(--mobile-menu-bg);
+    }
+
+    .program-card,
+    .info-icon-card,
+    .poster-card,
+    .tuition-card,
+    .news-card,
+    .gallery-item,
+    .director-message,
+    .vision-box,
+    .image-badge,
+    .inquiry-form {
+      background: var(--card-bg);
+      border-color: var(--border-soft);
+    }
+
+    .program-content,
+    .program-content h3,
+    .tuition-tag,
+    .tuition-fees {
+      color: var(--text-heading);
+    }
+
+    .news-view-link {
+      border-color: var(--border-soft);
+      background: var(--section-alt-bg);
+      color: var(--blue);
+    }
+
+    .poster-thumb {
+      background: var(--section-alt-bg);
+      border-bottom-color: var(--border-soft);
+    }
+
+    input,
+    select,
+    textarea {
+      background: var(--input-bg);
+      color: var(--input-text);
+      border-color: var(--border-soft);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--input-placeholder);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      background: var(--input-bg);
+      color: var(--input-text);
+      border-color: rgba(7, 135, 219, 0.58);
+      box-shadow: 0 0 0 4px rgba(7, 135, 219, 0.14);
+    }
+
+    label {
+      color: var(--text-heading);
+    }
+
+    .btn-secondary {
+      color: var(--text-heading);
+      background: var(--card-bg);
+      border-color: var(--border-soft);
+    }
+
+    .btn-outline {
+      color: var(--text-heading);
+      background: transparent;
+      border-color: var(--border-soft);
+    }
+
+    .btn-outline:hover {
+      background: var(--section-alt-bg);
+      border-color: rgba(7, 135, 219, 0.4);
+      color: var(--text-heading);
+      box-shadow: 0 10px 24px rgba(6, 58, 118, 0.14);
+    }
+
+    .hero,
+    .hero h1,
+    .hero .section-title {
+      color: #ffffff;
+    }
+
+    .hero p,
+    .hero .hero-card p,
+    .hero .trust-chip,
+    .hero-stat span {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero .btn-outline {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.54);
+    }
+
+    .hero .btn-outline:hover {
+      color: var(--navy);
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .poster-lightbox-panel,
+    .toast {
+      background: var(--card-bg);
+      border-color: var(--border-soft);
+    }
+
+    .poster-lightbox-bar {
+      border-bottom-color: var(--border-soft);
+    }
+
+    .lightbox-close {
+      background: var(--card-bg);
+      border-color: var(--border-soft);
+      color: var(--text-heading);
+    }
+
+    .poster-lightbox-stage,
+    .gallery-item.poster img,
+    .news-card img {
+      background: var(--section-alt-bg);
+    }
+
+    .lang-btn:not(.active):hover {
+      background: var(--section-alt-bg);
+      color: var(--text-heading);
+    }
+
+    .community-wrap h2,
+    .community-wrap h3,
+    .community-wrap .section-title {
+      color: #ffffff;
+    }
+
+    .community-wrap p,
+    .community-wrap .lead {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .request-panel h2,
+    .request-panel .section-title {
+      color: #ffffff;
+    }
+
+    .request-panel p,
+    .contact-details a,
+    .contact-details span {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
     /* ── Bilingual visibility helpers ── */
     body:not(.lang-en) .en-only { display: none !important; }
     body.lang-en .km-only { display: none !important; }
@@ -1572,19 +2201,19 @@
       padding: 28px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      background: var(--white);
+      background: var(--card-bg);
       box-shadow: var(--shadow);
     }
 
     .vision-box h3 {
       margin-bottom: 12px;
-      color: var(--navy);
+      color: var(--text-heading);
     }
 
     .mission-list {
       margin: 0;
       padding-left: 20px;
-      color: var(--muted);
+      color: var(--text-body);
       line-height: 1.9;
     }
 
@@ -1604,7 +2233,7 @@
       padding: 26px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      background: var(--white);
+      background: var(--card-bg);
       box-shadow: var(--shadow);
     }
 
@@ -1619,14 +2248,14 @@
       padding: 6px 10px;
       border-radius: 999px;
       background: rgba(245, 200, 90, 0.22);
-      color: var(--navy);
+      color: var(--text-heading);
       font-size: 0.78rem;
       font-weight: 900;
     }
 
     .tuition-fees {
       margin: 0 0 14px;
-      color: var(--navy);
+      color: var(--text-heading);
       font-size: 1.05rem;
       font-weight: 900;
       line-height: 1.5;
@@ -1636,7 +2265,7 @@
       flex: 1;
       margin: 0 0 18px;
       padding-left: 18px;
-      color: var(--muted);
+      color: var(--text-body);
       font-size: 0.92rem;
       line-height: 1.85;
     }
@@ -1652,7 +2281,7 @@
       border-left: 3px solid var(--gold);
       border-radius: 0 14px 14px 0;
       background: rgba(245, 200, 90, 0.12);
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 0.92rem;
     }
 
@@ -1715,7 +2344,7 @@
   <header class="site-header">
     <div class="container nav-inner">
       <a class="brand" href="#home" aria-label="ទំព័រដើម សាលាអាយលើននីង អន្តរជាតិ" data-km-aria="ទំព័រដើម សាលាអាយលើននីង អន្តរជាតិ" data-en-aria="iLearning International Academy home">
-        <span class="brand-mark" aria-hidden="true"><img src="Client/C001%20-%20IIA%20Edu/iiA%20logo%20new%2002.png" alt="" /></span>
+        <span class="brand-mark" aria-hidden="true"><img src="./iiA%20logo%20new%2002.png" alt="" /></span>
         <span><span class="lang-text" data-km="សាលាអាយលើននីង អន្តរជាតិ" data-en="iLearning International Academy">សាលាអាយលើននីង អន្តរជាតិ</span><small><span class="lang-text" data-km="ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ" data-en="Knowledge · Morality · Vision">ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ</span></small></span>
       </a>
 
@@ -1733,6 +2362,10 @@
           <button class="lang-btn active" id="btnKm" type="button" aria-pressed="true">KM</button>
           <button class="lang-btn" id="btnEn" type="button" aria-pressed="false">EN</button>
         </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+          <span class="theme-label lang-text" data-km="ងងឹត" data-en="Dark">ងងឹត</span>
+        </button>
         <a class="btn btn-primary" href="#contact"><span class="lang-text" data-km="សាកសួរព័ត៌មាន" data-en="Inquire Now">សាកសួរព័ត៌មាន</span></a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -1744,7 +2377,7 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu-head">
       <a class="brand" href="#home" aria-label="ទំព័រដើម សាលាអាយលើននីង អន្តរជាតិ" data-km-aria="ទំព័រដើម សាលាអាយលើននីង អន្តរជាតិ" data-en-aria="iLearning International Academy home">
-        <span class="brand-mark" aria-hidden="true"><img src="Client/C001%20-%20IIA%20Edu/iiA%20logo%20new%2002.png" alt="" /></span>
+        <span class="brand-mark" aria-hidden="true"><img src="./iiA%20logo%20new%2002.png" alt="" /></span>
         <span><span class="lang-text" data-km="សាលាអាយលើននីង អន្តរជាតិ" data-en="iLearning International Academy">សាលាអាយលើននីង អន្តរជាតិ</span><small><span class="lang-text" data-km="ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ" data-en="Knowledge · Morality · Vision">ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ</span></small></span>
       </a>
       <button class="close-menu" type="button" aria-label="Close menu">
@@ -1771,15 +2404,15 @@
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M5 8h14M7 16h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="lang-text" data-km="សាលាអាយលើននីង អន្តរជាតិ" data-en="iLearning International Academy">សាលាអាយលើននីង អន្តរជាតិ</span>
           </div>
-          <h1><span class="lang-text" data-km="ការអប់រំបង្កើតអនាគតលើគម្រោង ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ" data-en="Education That Builds the Future — Knowledge · Morality · Vision">ការអប់រំបង្កើតអនាគតលើគម្រោង ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ</span></h1>
-          <div class="promo-badge" role="note" aria-label="Promotion">
-            <span class="promo-badge-icon">🎁</span>
+          <h1><span class="lang-text" data-km="ការអប់រំដែលបង្កើតអនាគត តាមរយៈចំណេះដឹង សីលធម៌ និងទស្សនវិស័យ" data-en="Education That Builds the Future — Knowledge · Morality · Vision">ការអប់រំដែលបង្កើតអនាគត តាមរយៈចំណេះដឹង សីលធម៌ និងទស្សនវិស័យ</span></h1>
+          <div class="promo-badge" role="note" aria-label="Enrollment update">
+            <span class="promo-badge-icon">📅</span>
             <span class="promo-badge-text">
-              <span class="lang-text" data-km="ផ្ដល់ជូនកាដូពិសេស! បញ្ចុះតម្លៃ ២៥% លើថ្លៃសិក្សា ថែមទាំងទទួលបាន ឯកសណ្ឋាន ១កំប្លេ ឬ សៀវភៅសិក្សា ១ឈុត ភ្លាមៗ!" data-en="Special Offer: 25% OFF Tuition Fees + Free 1 Set of School Uniform or Study Books!">ផ្ដល់ជូនកាដូពិសេស! បញ្ចុះតម្លៃ ២៥% លើថ្លៃសិក្សា ថែមទាំងទទួលបាន ឯកសណ្ឋាន ១កំប្លេ ឬ សៀវភៅសិក្សា ១ឈុត ភ្លាមៗ!</span>
-              <span class="promo-badge-note"><span class="lang-text" data-km="📅 ឆមាសបឋម ចាប់ផ្ដើម ១ តុលា ២០២៥ — ការចុះឈ្មោះនៅតែបើកទទួល!" data-en="📅 Academic term started Oct 1, 2025 — Enrollment is still open!">📅 ឆមាសបឋម ចាប់ផ្ដើម ១ តុលា ២០២៥ — ការចុះឈ្មោះនៅតែបើកទទួល!</span></span>
+              <span class="lang-text" data-km="ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ" data-en="Enrollment is open daily">ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ</span>
+              <span class="promo-badge-note"><span class="lang-text" data-km="វគ្គសិក្សាថ្មីចាប់ផ្តើមរៀងរាល់ ៣ ខែម្តង" data-en="New term starts every 3 months">វគ្គសិក្សាថ្មីចាប់ផ្តើមរៀងរាល់ ៣ ខែម្តង</span></span>
             </span>
           </div>
-          <p><span class="lang-text" data-km="ចំណេះទូទៅខ្មែរ · កម្មវិធីភាសាអង់គ្លេស Oxford · កុំព្យូទ័រ និងសកម្មភាពសិស្ស — បើកទទួលចុះឈ្មោះឥឡូវនេះ!" data-en="Khmer General · Oxford English Program · Computer &amp; Student Development — enrollment open now!">ចំណេះទូទៅខ្មែរ · កម្មវិធីភាសាអង់គ្លេស Oxford · កុំព្យូទ័រ និងសកម្មភាពសិស្ស — បើកទទួលចុះឈ្មោះឥឡូវនេះ!</span></p>
+          <p><span class="lang-text" data-km="ចំណេះទូទៅខ្មែរ · កម្មវិធីភាសាអង់គ្លេស Oxford · កុំព្យូទ័រ និងសកម្មភាពសិស្ស — ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ!" data-en="Khmer General · Oxford English Program · Computer &amp; Student Development — enrollment is open daily!">ចំណេះទូទៅខ្មែរ · កម្មវិធីភាសាអង់គ្លេស Oxford · កុំព្យូទ័រ និងសកម្មភាពសិស្ស — ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ!</span></p>
           <div class="hero-trust-chips" aria-label="School highlights">
             <span class="trust-chip"><span class="lang-text" data-km="✓ ទទួលស្គាល់ដោយក្រសួងអប់រំ (ប្រកាស ១០៣៨)" data-en="✓ MoEYS Recognized (Prakas 1038)">✓ ទទួលស្គាល់ដោយក្រសួងអប់រំ (ប្រកាស ១០៣៨)</span></span>
             <span class="trust-chip"><span class="lang-text" data-km="✓ Oxford iTools &amp; Ebook" data-en="✓ Oxford iTools &amp; Ebook">✓ Oxford iTools &amp; Ebook</span></span>
@@ -1797,10 +2430,10 @@
           </div>
         </div>
         <aside class="hero-card" aria-label="Registration highlight">
-          <img src="Client/C001%20-%20IIA%20Edu/photo_4_2026-06-12_19-56-08.jpg" data-km-alt="សិស្សសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="Students at iLearning International Academy" alt="សិស្សសាលាអាយលើននីង អន្តរជាតិ" />
+          <img src="./additional image 10.jpg" data-km-alt="សិស្សសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="IIA Education students and teachers" alt="IIA Education students and teachers" />
           <div class="hero-card-body">
-            <h3><span class="lang-text" data-km="បើកទទួលចុះឈ្មោះ" data-en="Enrollment Open Now">បើកទទួលចុះឈ្មោះ</span></h3>
-            <p><span class="lang-text" data-km="សាកសួរព័ត៌មានអំពីកម្មវិធីសិក្សា តម្លៃសិក្សា វេនសិក្សា និងការចុះឈ្មោះសម្រាប់កូនៗរបស់អ្នក។" data-en="Inquire about programs, tuition fees, class shifts, and registration for your children.">សាកសួរព័ត៌មានអំពីកម្មវិធីសិក្សា តម្លៃសិក្សា វេនសិក្សា និងការចុះឈ្មោះសម្រាប់កូនៗរបស់អ្នក។</span></p>
+            <h3><span class="lang-text" data-km="ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ" data-en="Enrollment is open daily">ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ</span></h3>
+            <p><span class="lang-text" data-km="វគ្គសិក្សាថ្មីចាប់ផ្តើមរៀងរាល់ ៣ ខែម្តង · សូមទាក់ទងសាលាសម្រាប់ព័ត៌មានលម្អិត។" data-en="New term starts every 3 months · Please contact the school for details.">វគ្គសិក្សាថ្មីចាប់ផ្តើមរៀងរាល់ ៣ ខែម្តង · សូមទាក់ទងសាលាសម្រាប់ព័ត៌មានលម្អិត។</span></p>
           </div>
         </aside>
       </div>
@@ -1815,7 +2448,7 @@
               <span class="lang-text" data-km="កម្មវិធីសិក្សា" data-en="Academic Programs">កម្មវិធីសិក្សា</span>
             </div>
             <h2 class="section-title">
-              <span class="km-only">បីផ្លូវសិក្សាសំខាន់<br>សម្រាប់កូនៗរបស់អ្នក</span>
+              <span class="km-only">កម្មវិធីសិក្សាសំខាន់ៗ<br>សម្រាប់កូនៗរបស់អ្នក</span>
               <span class="en-only">Three Core Learning Tracks<br>for Your Children</span>
             </h2>
           </div>
@@ -1825,7 +2458,7 @@
         <div class="program-grid">
           <article class="program-card reveal">
             <div class="program-media program-media--building">
-              <img src="Client/C001%20-%20IIA%20Edu/school%20building%20photo.jpg" data-km-alt="អគារសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="iLearning International Academy school building" alt="អគារសាលាអាយលើននីង អន្តរជាតិ" />
+              <img src="./additional image 07.jpg" data-km-alt="បរិយាកាសសិក្សានៅសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="IIA Education classroom learning environment" alt="IIA Education classroom learning environment" />
             </div>
             <div class="program-content">
               <span class="program-tag"><span class="lang-text" data-km="ចំណេះទូទៅ" data-en="General">ចំណេះទូទៅ</span></span>
@@ -1847,9 +2480,8 @@
           </article>
 
           <article class="program-card reveal">
-            <div class="program-media program-media--brand program-media--oxford" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5V6.5A2.5 2.5 0 0 1 6.5 4H20v15H6.5A2.5 2.5 0 0 0 4 21.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 8h8M8 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <span class="program-media-label">Oxford English</span>
+            <div class="program-media program-media--oxford">
+              <img src="./additional image 11.jpg" data-km-alt="សកម្មភាពរៀនភាសាអង់គ្លេសនៅសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="IIA Education English class" alt="IIA Education English class" />
             </div>
             <div class="program-content">
               <span class="program-tag"><span class="lang-text" data-km="ភាសាអង់គ្លេស" data-en="English">ភាសាអង់គ្លេស</span></span>
@@ -1872,21 +2504,21 @@
 
           <article class="program-card reveal">
             <div class="program-media program-media--activities">
-              <img src="Client/C001%20-%20IIA%20Edu/photo_5_2026-06-12_19-56-08.jpg" data-km-alt="សកម្មភាពសិស្ស និងកម្មវិធីប្រចាំឆ្នាំ" data-en-alt="Student activities and annual school events" alt="សកម្មភាពសិស្ស និងកម្មវិធីប្រចាំឆ្នាំ" />
+              <img src="./additional image 05.jpg" data-km-alt="ថ្នាក់កុំព្យូទ័រ និងសកម្មភាពសិស្ស" data-en-alt="IIA Education computer classroom" alt="IIA Education computer classroom" />
             </div>
             <div class="program-content">
               <span class="program-tag"><span class="lang-text" data-km="អភិវឌ្ឍសិស្ស" data-en="Development">អភិវឌ្ឍសិស្ស</span></span>
               <h3><span class="lang-text" data-km="កុំព្យូទ័រ &amp; សកម្មភាពសិស្ស" data-en="Computer &amp; Student Development">កុំព្យូទ័រ &amp; សកម្មភាពសិស្ស</span></h3>
               <ul class="program-list km-only">
-                <li>វិទ្យាសាស្ត្រកុំព្យូទ័រ + ជំនាញជីវិត</li>
+                <li>Microsoft Word · Microsoft Excel · Microsoft PowerPoint</li>
+                <li>ការងាររដ្ឋបាល</li>
                 <li>បណ្ណាល័យ សួនកុមារ ប្រកួតប្រជែង</li>
-                <li>វិញ្ញាបនបត្រ &amp; អាហារូបករណ៍</li>
                 <li>Top Student of the Year</li>
               </ul>
               <ul class="program-list en-only">
-                <li>Computer science + life skills</li>
+                <li>Microsoft Word · Microsoft Excel · Microsoft PowerPoint</li>
+                <li>Administration Work</li>
                 <li>Library, playground, competitions</li>
-                <li>Certificates &amp; scholarships</li>
                 <li>Top Student of the Year</li>
               </ul>
               <a class="icon-link" href="#student-life"><span class="lang-text" data-km="មើលសកម្មភាព" data-en="View Activities">មើលសកម្មភាព</span> <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -1911,7 +2543,7 @@
           <a class="btn btn-primary" href="#contact"><span class="lang-text" data-km="សាកសួរអំពីការចុះឈ្មោះ" data-en="Ask About Enrollment">សាកសួរអំពីការចុះឈ្មោះ</span></a>
         </div>
         <div class="image-stack reveal">
-          <img src="Client/C001%20-%20IIA%20Edu/school%20building%20photo.jpg" data-km-alt="អគារសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="iLearning International Academy school building" alt="អគារសាលាអាយលើននីង អន្តរជាតិ" />
+          <img src="./additional image 06.jpg" data-km-alt="បរិយាកាសរៀននៅសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="IIA Education classroom learning environment" alt="IIA Education classroom learning environment" />
           <div class="image-badge">
             <strong><span class="lang-text" data-km="ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ" data-en="Knowledge · Morality · Vision">ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ</span></strong>
             <span><span class="lang-text" data-km="គុណភាពការអប់រំ ជាមួយការយកចិត្តទុកដាក់ និងទំនុកចិត្តពីមាតាបិតា។" data-en="Quality education with dedicated care and trusted by parents.">គុណភាពការអប់រំ ជាមួយការយកចិត្តទុកដាក់ និងទំនុកចិត្តពីមាតាបិតា។</span></span>
@@ -1958,7 +2590,7 @@
     <section class="section alt" id="director">
       <div class="container director-layout">
         <div class="director-photo reveal">
-          <img src="Client/C001%20-%20IIA%20Edu/School%20Director.jpg" data-km-alt="នាយកសាលា សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="School Director of iLearning International Academy" alt="នាយកសាលា សាលាអាយលើននីង អន្តរជាតិ" />
+          <img src="./School%20Director.jpg" data-km-alt="នាយកសាលា សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="School Director of iLearning International Academy" alt="នាយកសាលា សាលាអាយលើននីង អន្តរជាតិ" />
         </div>
         <div class="director-message reveal">
           <div class="eyebrow">
@@ -1969,6 +2601,7 @@
             <span class="km-only">សារស្វាគមន៍<br>ពីគណៈគ្រប់គ្រង</span>
             <span class="en-only">Welcome Message<br>from School Leadership</span>
           </h2>
+          <p><span class="lang-text" data-km="ផាត សុភ័ក្ត្រ · នាយក" data-en="PHAT Sopheak · Director">ផាត សុភ័ក្ត្រ · នាយក</span></p>
           <blockquote>
             <span class="km-only">នៅ សាលាអាយលើននីង អន្តរជាតិ យើងខិតខំផ្តល់ការអប់រំគុណភាពខ្ពស់ ជាមួយសម្ភារៈសិក្សាទំនើប ការជួយកិច្ចការផ្ទះ អាហារូបករណ៍ និងបរិយាកាសសុវត្ថិភាព — ដើម្បីឱ្យសិស្សរៀនបានល្អ និងមានអនាគតភ្លឺស្វាង។</span>
             <span class="en-only">At iLearning International Academy, we are committed to delivering high-quality education with modern materials, homework support, scholarships, and a safe environment — so every student can learn well and build a brighter future.</span>
@@ -1992,31 +2625,44 @@
             </h2>
           </div>
           <p><span class="lang-text" data-km="ពិធីប្រគល់វិញ្ញាបនបត្រ ការរៀនប្រចាំថ្ងៃ បន្ទប់កុំព្យូទ័រ បណ្ណាល័យ សួនកុមារ — Learning English is Fun! · Top Student · អាហារូបករណ៍" data-en="Certificate ceremonies, daily learning, computer lab, library, playground — Learning English is Fun! · Top Student · Scholarships">ពិធីប្រគល់វិញ្ញាបនបត្រ ការរៀនប្រចាំថ្ងៃ បន្ទប់កុំព្យូទ័រ បណ្ណាល័យ សួនកុមារ — Learning English is Fun! · Top Student · អាហារូបករណ៍</span></p>
+          <p class="gallery-note"><span class="lang-text" data-km="ចុចលើរូបភាព ដើម្បីមើលរូបភាពពេញ។" data-en="Click any photo to view the full image.">ចុចលើរូបភាព ដើម្បីមើលរូបភាពពេញ។</span></p>
         </div>
         <div class="gallery-grid">
-          <button class="gallery-item poster reveal" type="button" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_1_2026-06-12_19-56-08.jpg" data-poster-title="សារលិខិតស្វាគមន៍ពីគណៈគ្រប់គ្រងសាលា">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_1_2026-06-12_19-56-08.jpg" alt="សារលិខិតស្វាគមន៍ពីគណៈគ្រប់គ្រងសាលា" />
-            <span class="gallery-caption">សារលិខិតស្វាគមន៍ពីគណៈគ្រប់គ្រងសាលា<span class="gallery-hint"><span class="lang-text" data-km="ចុចដើម្បីមើលរូបពេញ" data-en="Click to view full image">ចុចដើម្បីមើលរូបពេញ</span></span></span>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 01.jpg" data-poster-title-km="ពិធីប្រគល់រង្វាន់សិស្ស" data-poster-title-en="Student Award Ceremony">
+            <img src="./additional image 01.jpg" alt="IIA Education students at school activity" />
+            <span class="gallery-caption"><span class="lang-text" data-km="ពិធីប្រគល់រង្វាន់សិស្ស" data-en="Student Award Ceremony">ពិធីប្រគល់រង្វាន់សិស្ស</span></span>
           </button>
-          <button class="gallery-item poster reveal" type="button" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_2_2026-06-12_19-56-08.jpg" data-poster-title="ទស្សនវិស័យ និងគោលដៅអប់រំ">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_2_2026-06-12_19-56-08.jpg" alt="ទស្សនវិស័យ និងគោលដៅអប់រំ" />
-            <span class="gallery-caption">ទស្សនវិស័យ និងគោលដៅអប់រំ<span class="gallery-hint"><span class="lang-text" data-km="ចុចដើម្បីមើលរូបពេញ" data-en="Click to view full image">ចុចដើម្បីមើលរូបពេញ</span></span></span>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 02.jpg" data-poster-title-km="សកម្មភាពប្រចាំឆ្នាំរបស់សាលា" data-poster-title-en="Annual School Activities">
+            <img src="./additional image 02.jpg" alt="IIA Education students and teachers" />
+            <span class="gallery-caption"><span class="lang-text" data-km="សកម្មភាពប្រចាំឆ្នាំរបស់សាលា" data-en="Annual School Activities">សកម្មភាពប្រចាំឆ្នាំរបស់សាលា</span></span>
           </button>
-          <button class="gallery-item poster reveal" type="button" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_3_2026-06-12_19-56-08.jpg" data-poster-title="កម្មវិធីសិក្សាភាសាអង់គ្លេស Oxford">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_3_2026-06-12_19-56-08.jpg" alt="កម្មវិធីសិក្សាភាសាអង់គ្លេស Oxford" />
-            <span class="gallery-caption">កម្មវិធីសិក្សាភាសាអង់គ្លេស Oxford<span class="gallery-hint"><span class="lang-text" data-km="ចុចដើម្បីមើលរូបពេញ" data-en="Click to view full image">ចុចដើម្បីមើលរូបពេញ</span></span></span>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 03.jpg" data-poster-title-km="សិស្សកំពុងសរសេរមេរៀន" data-poster-title-en="Student Writing Practice">
+            <img src="./additional image 03.jpg" alt="IIA Education classroom learning environment" />
+            <span class="gallery-caption"><span class="lang-text" data-km="សិស្សកំពុងសរសេរមេរៀន" data-en="Student Writing Practice">សិស្សកំពុងសរសេរមេរៀន</span></span>
           </button>
-          <button class="gallery-item poster reveal" type="button" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_4_2026-06-12_19-56-08.jpg" data-poster-title="កម្មវិធីចំណេះទូទៅខ្មែរ និងការចុះឈ្មោះ">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_4_2026-06-12_19-56-08.jpg" alt="កម្មវិធីចំណេះទូទៅខ្មែរ និងការចុះឈ្មោះ" />
-            <span class="gallery-caption">កម្មវិធីចំណេះទូទៅខ្មែរ និងការចុះឈ្មោះ<span class="gallery-hint"><span class="lang-text" data-km="ចុចដើម្បីមើលរូបពេញ" data-en="Click to view full image">ចុចដើម្បីមើលរូបពេញ</span></span></span>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 04.jpg" data-poster-title-km="ការរៀនក្នុងថ្នាក់មត្តេយ្យ" data-poster-title-en="Kindergarten Classroom Learning">
+            <img src="./additional image 04.jpg" alt="IIA Education English class" />
+            <span class="gallery-caption"><span class="lang-text" data-km="ការរៀនក្នុងថ្នាក់មត្តេយ្យ" data-en="Kindergarten Classroom Learning">ការរៀនក្នុងថ្នាក់មត្តេយ្យ</span></span>
           </button>
-          <button class="gallery-item poster reveal" type="button" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_5_2026-06-12_19-56-08.jpg" data-poster-title="សកម្មភាព និងកម្មវិធីប្រចាំឆ្នាំរបស់សាលា">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_5_2026-06-12_19-56-08.jpg" alt="សកម្មភាព និងកម្មវិធីប្រចាំឆ្នាំរបស់សាលា" />
-            <span class="gallery-caption">សកម្មភាព និងកម្មវិធីប្រចាំឆ្នាំរបស់សាលា<span class="gallery-hint"><span class="lang-text" data-km="ចុចដើម្បីមើលរូបពេញ" data-en="Click to view full image">ចុចដើម្បីមើលរូបពេញ</span></span></span>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 05.jpg" data-poster-title-km="បរិយាកាសថ្នាក់រៀន" data-poster-title-en="Classroom Learning Environment">
+            <img src="./additional image 05.jpg" alt="IIA Education computer classroom" />
+            <span class="gallery-caption"><span class="lang-text" data-km="បរិយាកាសថ្នាក់រៀន" data-en="Classroom Learning Environment">បរិយាកាសថ្នាក់រៀន</span></span>
           </button>
-          <button class="gallery-item poster reveal" type="button" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_6_2026-06-12_19-56-08.jpg" data-poster-title="តារាងតម្លៃសិក្សា និងវេនសិក្សាគ្រប់កម្រិត">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_6_2026-06-12_19-56-08.jpg" alt="តារាងតម្លៃសិក្សា និងវេនសិក្សាគ្រប់កម្រិត" />
-            <span class="gallery-caption">តារាងតម្លៃសិក្សា និងវេនសិក្សាគ្រប់កម្រិត<span class="gallery-hint"><span class="lang-text" data-km="ចុចដើម្បីមើលរូបពេញ" data-en="Click to view full image">ចុចដើម្បីមើលរូបពេញ</span></span></span>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 06.jpg" data-poster-title-km="សកម្មភាពគ្រូ និងសិស្ស" data-poster-title-en="Teacher and Student Activity">
+            <img src="./additional image 06.jpg" alt="IIA Education classroom learning environment" />
+            <span class="gallery-caption"><span class="lang-text" data-km="សកម្មភាពគ្រូ និងសិស្ស" data-en="Teacher and Student Activity">សកម្មភាពគ្រូ និងសិស្ស</span></span>
+          </button>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 07.jpg" data-poster-title-km="សិស្សកំពុងសិក្សា" data-poster-title-en="Focused Student Learning">
+            <img src="./additional image 07.jpg" alt="IIA Education student studying" />
+            <span class="gallery-caption"><span class="lang-text" data-km="សិស្សកំពុងសិក្សា" data-en="Focused Student Learning">សិស្សកំពុងសិក្សា</span></span>
+          </button>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 08.jpg" data-poster-title-km="សហគមន៍សាលា IIA" data-poster-title-en="IIA school community">
+            <img src="./additional image 08.jpg" alt="IIA Education students and teachers" />
+            <span class="gallery-caption"><span class="lang-text" data-km="សហគមន៍សាលា IIA" data-en="IIA School Community">សហគមន៍សាលា IIA</span></span>
+          </button>
+          <button class="gallery-item reveal" type="button" data-poster-src="./additional image 09.jpg" data-poster-title-km="សកម្មភាពសិស្សក្រៅថ្នាក់" data-poster-title-en="Student Outdoor Activity">
+            <img src="./additional image 09.jpg" alt="IIA Education school activity" />
+            <span class="gallery-caption"><span class="lang-text" data-km="សកម្មភាពសិស្សក្រៅថ្នាក់" data-en="Student Outdoor Activity">សកម្មភាពសិស្សក្រៅថ្នាក់</span></span>
           </button>
         </div>
       </div>
@@ -2058,7 +2704,7 @@
             </div>
           </div>
           <div class="community-image">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_1_2026-06-12_19-56-08.jpg" data-km-alt="សារលិខិតស្វាគមន៍ពីគណៈគ្រប់គ្រងសាលាអាយលើននីង អន្តរជាតិ" data-en-alt="Welcome message from iLearning International Academy management" alt="សារលិខិតស្វាគមន៍ពីគណៈគ្រប់គ្រងសាលាអាយលើននីង អន្តរជាតិ" />
+            <img src="./additional image 12.jpg" data-km-alt="សហគមន៍សាលា និងសកម្មភាពសិស្ស" data-en-alt="IIA Education school community" alt="IIA Education school community" />
           </div>
         </div>
       </div>
@@ -2074,59 +2720,43 @@
             </div>
             <h2 class="section-title">
               <span class="km-only">ព័ត៌មានសំខាន់<br>សម្រាប់មាតាបិតា និងសិស្ស</span>
-              <span class="en-only">Important Updates<br>for Parents &amp; Students</span>
+              <span class="en-only">Important Information<br>for Parents and Students</span>
             </h2>
           </div>
-          <p><span class="lang-text" data-km="ព័ត៌មានអំពីការចុះឈ្មោះ ការបញ្ចុះតម្លៃ ថ្លៃសិក្សា វេនសិក្សា និងព្រឹត្តិការណ៍ប្រចាំឆ្នាំរបស់សាលា។" data-en="Updates on enrollment, promotions, tuition &amp; shifts, and annual school events.">ព័ត៌មានអំពីការចុះឈ្មោះ ការបញ្ចុះតម្លៃ ថ្លៃសិក្សា វេនសិក្សា និងព្រឹត្តិការណ៍ប្រចាំឆ្នាំរបស់សាលា។</span></p>
+          <p><span class="lang-text" data-km="ព័ត៌មានអំពីការចុះឈ្មោះ ថ្លៃសិក្សា វេនសិក្សា និងព្រឹត្តិការណ៍ប្រចាំឆ្នាំរបស់សាលា។" data-en="Updates on enrollment, tuition &amp; shifts, and annual school events.">ព័ត៌មានអំពីការចុះឈ្មោះ ថ្លៃសិក្សា វេនសិក្សា និងព្រឹត្តិការណ៍ប្រចាំឆ្នាំរបស់សាលា។</span></p>
         </div>
-        <div class="news-grid">
-          <article class="news-card reveal">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_4_2026-06-12_19-56-08.jpg" data-km-alt="ការចុះឈ្មោះសិស្សថ្មី សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="New student enrollment at iLearning International Academy" alt="ការចុះឈ្មោះសិស្សថ្មី សាលាអាយលើននីង អន្តរជាតិ" />
-            <div class="news-body">
-              <div class="news-date"><span>2025–26</span><span>Enrollment</span></div>
-              <h3><span class="lang-text" data-km="បើកទទួលចុះឈ្មោះ + បញ្ចុះ ២៥%" data-en="Enrollment Open + 25% OFF">បើកទទួលចុះឈ្មោះ + បញ្ចុះ ២៥%</span></h3>
-              <p>
-                <span class="km-only">ឆ្នាំសិក្សាចាប់ផ្តើម ១ តុលា ២០២៥ — ចុះឈ្មោះនៅតែបើក! បញ្ចុះ ២៥% + uniform ឬសៀវភៅឥតគិតថ្លៃ · ចុះឈ្មោះឥតគិតថ្លៃ។</span>
-                <span class="en-only">Term started 1 October 2025 — enrollment still open! 25% OFF + free uniform or books · free registration.</span>
-              </p>
-              <a class="news-view-link" href="#contact"><span class="lang-text" data-km="សាកសួរចុះឈ្មោះ" data-en="Inquire to Enroll">សាកសួរចុះឈ្មោះ</span> <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
+        <div class="info-icon-grid">
+          <article class="info-icon-card reveal">
+            <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M8 11h8M8 15h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3><span class="lang-text" data-km="ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ" data-en="Enrollment Open Daily">ទទួលចុះឈ្មោះរៀងរាល់ថ្ងៃ</span></h3>
+            <p><span class="lang-text" data-km="មាតាបិតាអាចទាក់ទងសាលា ដើម្បីសាកសួរកម្រិតសិក្សា វេនសិក្សា និងព័ត៌មានចុះឈ្មោះ។" data-en="Parents can contact the school for available levels, class shifts, and registration information.">មាតាបិតាអាចទាក់ទងសាលា ដើម្បីសាកសួរកម្រិតសិក្សា វេនសិក្សា និងព័ត៌មានចុះឈ្មោះ។</span></p>
           </article>
-          <article class="news-card reveal">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_6_2026-06-12_19-56-08.jpg" data-km-alt="តារាងតម្លៃសិក្សា និងវេនសិក្សា សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="School fees and shifts at iLearning International Academy" alt="តារាងតម្លៃសិក្សា និងវេនសិក្សា សាលាអាយលើននីង អន្តរជាតិ" />
-            <div class="news-body">
-              <div class="news-date"><span>iLIA</span><span>Fees</span></div>
-              <h3><span class="lang-text" data-km="តម្លៃសិក្សា និងវេនសិក្សា" data-en="Tuition Fees &amp; Shifts">តម្លៃសិក្សា និងវេនសិក្សា</span></h3>
-              <p>
-                <span class="km-only">ខ្មែរ $៣៥–៤៥/ខែ · អង់គ្លេសពេញម៉ោង $២៨–៤០ · ពេលល្ងាច $១៥–២៥ · ចុះឈ្មោះឥតគិតថ្លៃ។</span>
-                <span class="en-only">Khmer $35–45/mo · English full-time $28–40 · Part-time $15–25 · free registration.</span>
-              </p>
-              <a class="news-view-link" href="#tuition"><span class="lang-text" data-km="មើលតម្លៃលម្អិត" data-en="View Fee Details">មើលតម្លៃលម្អិត</span> <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
+          <article class="info-icon-card reveal">
+            <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 1 1-2.34-5.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 4v6h-6M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3><span class="lang-text" data-km="វគ្គសិក្សាថ្មីរៀងរាល់ ៣ ខែម្តង" data-en="New Term Every 3 Months">វគ្គសិក្សាថ្មីរៀងរាល់ ៣ ខែម្តង</span></h3>
+            <p><span class="lang-text" data-km="ថ្នាក់ថ្មីចាប់ផ្តើមជាប្រចាំ ងាយស្រួលសម្រាប់សិស្សចូលរៀនតាមពេលវេលាសមស្រប។" data-en="New classes start regularly, making it easier for students to join at the right time.">ថ្នាក់ថ្មីចាប់ផ្តើមជាប្រចាំ ងាយស្រួលសម្រាប់សិស្សចូលរៀនតាមពេលវេលាសមស្រប។</span></p>
           </article>
-          <article class="news-card reveal">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_5_2026-06-12_19-56-08.jpg" data-km-alt="ពិធីប្រគល់វិញ្ញាបនបត្រ និងរង្វាន់ សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="Certificates and awards ceremony at iLearning International Academy" alt="ពិធីប្រគល់វិញ្ញាបនបត្រ និងរង្វាន់ សាលាអាយលើននីង អន្តរជាតិ" />
-            <div class="news-body">
-              <div class="news-date"><span>Annual</span><span>Events</span></div>
-              <h3><span class="lang-text" data-km="ពិធីប្រគល់វិញ្ញាបនបត្រ &amp; រង្វាន់" data-en="Certificates &amp; Awards Ceremony">ពិធីប្រគល់វិញ្ញាបនបត្រ &amp; រង្វាន់</span></h3>
-              <p>
-                <span class="km-only">ពិធីប្រគល់វិញ្ញាបនបត្រសម្រេច អាហារូបករណ៍ និងការទទួលស្គាល់ Top Student ប្រចាំឆ្នាំ។</span>
-                <span class="en-only">Annual achievement certificates, scholarships, and Top Student recognition ceremony.</span>
-              </p>
-              <a class="news-view-link" href="#student-life"><span class="lang-text" data-km="មើលសកម្មភាព" data-en="View Activities">មើលសកម្មភាព</span> <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
+          <article class="info-icon-card reveal">
+            <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3><span class="lang-text" data-km="ម៉ោងការិយាល័យចុះឈ្មោះ" data-en="Registration Office Hours">ម៉ោងការិយាល័យចុះឈ្មោះ</span></h3>
+            <p><span class="lang-text" data-km="ការិយាល័យចុះឈ្មោះបើករៀងរាល់ថ្ងៃ ចាប់ពីម៉ោង 7:00 ព្រឹក ដល់ 5:00 ល្ងាច។" data-en="Registration office opens daily from 7:00 AM to 5:00 PM.">ការិយាល័យចុះឈ្មោះបើករៀងរាល់ថ្ងៃ ចាប់ពីម៉ោង 7:00 ព្រឹក ដល់ 5:00 ល្ងាច។</span></p>
           </article>
-          <article class="news-card reveal">
-            <img src="Client/C001%20-%20IIA%20Edu/photo_3_2026-06-12_19-56-08.jpg" data-km-alt="កម្មវិធីភាសាអង់គ្លេស Oxford សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="Oxford English program at iLearning International Academy" alt="កម្មវិធីភាសាអង់គ្លេស Oxford សាលាអាយលើននីង អន្តរជាតិ" />
-            <div class="news-body">
-              <div class="news-date"><span>Oxford</span><span>English</span></div>
-              <h3><span class="lang-text" data-km="កម្មវិធីភាសាអង់គ្លេស Oxford" data-en="Oxford English Program">កម្មវិធីភាសាអង់គ្លេស Oxford</span></h3>
-              <p>
-                <span class="km-only">Pre-K ដល់ English File · Oxford iTools &amp; Ebook · Online Practice · Learning English is Fun!</span>
-                <span class="en-only">Pre-K to English File · Oxford iTools &amp; Ebook · Online Practice · Learning English is Fun!</span>
-              </p>
-              <a class="news-view-link" href="#programs"><span class="lang-text" data-km="មើលកម្មវិធី" data-en="View Programs">មើលកម្មវិធី</span> <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
+          <article class="info-icon-card reveal">
+            <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg></div>
+            <h3><span class="lang-text" data-km="មកទស្សនាទីតាំងសាលា" data-en="Visit the School Location">មកទស្សនាទីតាំងសាលា</span></h3>
+            <p><span class="lang-text" data-km="ទីតាំងស្ថិតនៅ ភូមិកោះក្របី សង្កាត់ព្រែកថ្មី ខណ្ឌច្បារអំពៅ រាជធានីភ្នំពេញ។" data-en="Located in Koh Krabei Village, Prek Thmey Sangkat, Chbar Ampov District, Phnom Penh.">ទីតាំងស្ថិតនៅ ភូមិកោះក្របី សង្កាត់ព្រែកថ្មី ខណ្ឌច្បារអំពៅ រាជធានីភ្នំពេញ។</span></p>
+            <a class="info-card-link" href="https://www.google.com/maps?q=11.464402,104.975815&amp;ll=11.464402,104.975815&amp;z=16" target="_blank" rel="noopener"><span class="lang-text" data-km="បើកផែនទី" data-en="Open Map">បើកផែនទី</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </article>
+          <article class="info-icon-card reveal">
+            <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m21 5-18 7 7 2 3 7 3-9 9-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 14 17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3><span class="lang-text" data-km="ទំនាក់ទំនងតាម Telegram" data-en="Contact via Telegram">ទំនាក់ទំនងតាម Telegram</span></h3>
+            <p><span class="lang-text" data-km="មាតាបិតាអាចសាកសួរព័ត៌មានដោយផ្ទាល់តាម Telegram ផ្លូវការរបស់សាលា។" data-en="Parents can ask questions directly through the official school Telegram.">មាតាបិតាអាចសាកសួរព័ត៌មានដោយផ្ទាល់តាម Telegram ផ្លូវការរបស់សាលា។</span></p>
+            <a class="info-card-link" href="https://t.me/iiainformation" target="_blank" rel="noopener"><span class="lang-text" data-km="ផ្ញើសារ Telegram" data-en="Message Telegram">ផ្ញើសារ Telegram</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </article>
+          <article class="info-icon-card reveal">
+            <div class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3><span class="lang-text" data-km="មានបង្រៀនជំនាញកុំព្យូទ័រ" data-en="Computer Skills Included">មានបង្រៀនជំនាញកុំព្យូទ័រ</span></h3>
+            <p><span class="lang-text" data-km="សិស្សអាចរៀន Microsoft Word, Excel, PowerPoint និងការងាររដ្ឋបាល។" data-en="Students can learn Microsoft Word, Excel, PowerPoint, and Administration Work.">សិស្សអាចរៀន Microsoft Word, Excel, PowerPoint និងការងាររដ្ឋបាល។</span></p>
           </article>
         </div>
       </div>
@@ -2184,12 +2814,126 @@
           </article>
         </div>
         <p class="tuition-note reveal">
-          <span class="lang-text" data-km="មើលតារាងតម្លៃសិក្សាពេញលេញ" data-en="View the full fee schedule">មើលតារាងតម្លៃសិក្សាពេញលេញ</span>
+          <span class="lang-text" data-km="មើលព័ត៌មានផ្ទាំងផ្សព្វផ្សាយ និងឯកសារទាញយករបស់សាលា" data-en="View school information posters and downloadable documents">មើលព័ត៌មានផ្ទាំងផ្សព្វផ្សាយ និងឯកសារទាញយករបស់សាលា</span>
           —
-          <button class="news-view-link" type="button" style="display:inline-flex;border:none;background:none;padding:0;cursor:pointer;font:inherit;color:var(--blue);" data-poster-src="Client/C001%20-%20IIA%20Edu/photo_6_2026-06-12_19-56-08.jpg" data-poster-title-km="តារាងតម្លៃសិក្សា និងវេនសិក្សាគ្រប់កម្រិត" data-poster-title-en="Full tuition &amp; shift schedule">
-            <span class="lang-text" data-km="បើករូបភាព" data-en="Open Image">បើករូបភាព</span>
-          </button>
+          <a class="news-view-link" href="#downloads"><span class="lang-text" data-km="បើកផ្នែកព័ត៌មានសាលា" data-en="Open school information section">បើកផ្នែកព័ត៌មានសាលា</span></a>
         </p>
+      </div>
+    </section>
+
+    <section class="section alt" id="downloads">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="lang-text" data-km="ព័ត៌មានសាលា និងឯកសារទាញយក" data-en="School Information &amp; Downloads">ព័ត៌មានសាលា និងឯកសារទាញយក</span>
+            </div>
+            <h2 class="section-title">
+              <span class="km-only">ផ្ទាំងព័ត៌មានផ្លូវការ<br>សម្រាប់មើល និងទាញយក</span>
+              <span class="en-only">Official Information Posters<br>to View and Download</span>
+            </h2>
+          </div>
+          <p><span class="lang-text" data-km="មើល ឬទាញយកព័ត៌មានសាលា ព័ត៌មានកម្មវិធីសិក្សា និងសេចក្តីជូនដំណឹងផ្សេងៗ។" data-en="View or download official school information posters, program details, and announcements.">មើល ឬទាញយកព័ត៌មានសាលា ព័ត៌មានកម្មវិធីសិក្សា និងសេចក្តីជូនដំណឹងផ្សេងៗ។</span></p>
+        </div>
+        <div class="poster-downloads-grid">
+          <article class="poster-card reveal">
+            <a class="poster-image-link" href="./photo_1_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener" aria-label="View full school overview poster">
+              <div class="poster-thumb"><img src="./photo_1_2026-06-12_19-56-08.jpg" alt="IIA Education school overview poster" /></div>
+            </a>
+            <div class="poster-content">
+              <h3><span class="lang-text" data-km="សេចក្តីណែនាំអំពីសាលា" data-en="School Overview">សេចក្តីណែនាំអំពីសាលា</span></h3>
+              <p><span class="lang-text" data-km="ព័ត៌មានទូទៅអំពីសាលា និងទិសដៅអប់រំ។" data-en="General school introduction and education direction.">ព័ត៌មានទូទៅអំពីសាលា និងទិសដៅអប់រំ។</span></p>
+              <div class="poster-actions">
+                <a class="btn btn-outline" href="./photo_1_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener"><span class="lang-text" data-en="View Poster" data-km="មើលផ្ទាំងព័ត៌មាន">View Poster</span></a>
+                <a class="btn btn-primary" href="./photo_1_2026-06-12_19-56-08.jpg" download>
+                  <span class="lang-text" data-km="ទាញយករូបភាព" data-en="Download Image">ទាញយករូបភាព</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="poster-card reveal">
+            <a class="poster-image-link" href="./photo_2_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener" aria-label="View full program information poster">
+              <div class="poster-thumb"><img src="./photo_2_2026-06-12_19-56-08.jpg" alt="IIA Education program information poster" /></div>
+            </a>
+            <div class="poster-content">
+              <h3><span class="lang-text" data-km="ព័ត៌មានកម្មវិធីសិក្សា" data-en="Program Information">ព័ត៌មានកម្មវិធីសិក្សា</span></h3>
+              <p><span class="lang-text" data-km="ព័ត៌មានអំពីកម្រិតសិក្សា និងគោលបំណងរៀន។" data-en="Program levels and learning objectives.">ព័ត៌មានអំពីកម្រិតសិក្សា និងគោលបំណងរៀន។</span></p>
+              <div class="poster-actions">
+                <a class="btn btn-outline" href="./photo_2_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener"><span class="lang-text" data-en="View Poster" data-km="មើលផ្ទាំងព័ត៌មាន">View Poster</span></a>
+                <a class="btn btn-primary" href="./photo_2_2026-06-12_19-56-08.jpg" download>
+                  <span class="lang-text" data-km="ទាញយករូបភាព" data-en="Download Image">ទាញយករូបភាព</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="poster-card reveal">
+            <a class="poster-image-link" href="./photo_3_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener" aria-label="View full computer course poster">
+              <div class="poster-thumb"><img src="./photo_3_2026-06-12_19-56-08.jpg" alt="IIA Education computer course poster" /></div>
+            </a>
+            <div class="poster-content">
+              <h3><span class="lang-text" data-km="ព័ត៌មានវគ្គកុំព្យូទ័រ" data-en="Computer Course Information">ព័ត៌មានវគ្គកុំព្យូទ័រ</span></h3>
+              <p><span class="lang-text" data-km="មុខវិជ្ជា Microsoft និងជំនាញការងាររដ្ឋបាល។" data-en="Microsoft course content and administration skills.">មុខវិជ្ជា Microsoft និងជំនាញការងាររដ្ឋបាល។</span></p>
+              <div class="poster-actions">
+                <a class="btn btn-outline" href="./photo_3_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener"><span class="lang-text" data-en="View Poster" data-km="មើលផ្ទាំងព័ត៌មាន">View Poster</span></a>
+                <a class="btn btn-primary" href="./photo_3_2026-06-12_19-56-08.jpg" download>
+                  <span class="lang-text" data-km="ទាញយករូបភាព" data-en="Download Image">ទាញយករូបភាព</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="poster-card reveal">
+            <a class="poster-image-link" href="./photo_4_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener" aria-label="View full enrollment announcement poster">
+              <div class="poster-thumb"><img src="./photo_4_2026-06-12_19-56-08.jpg" alt="IIA Education enrollment announcement poster" /></div>
+            </a>
+            <div class="poster-content">
+              <h3><span class="lang-text" data-km="សេចក្តីជូនដំណឹងចុះឈ្មោះ" data-en="Enrollment Announcement">សេចក្តីជូនដំណឹងចុះឈ្មោះ</span></h3>
+              <p><span class="lang-text" data-km="ព័ត៌មានអំពីការចុះឈ្មោះ និងការចាប់ផ្តើមវគ្គថ្មី។" data-en="Enrollment information and new term notices.">ព័ត៌មានអំពីការចុះឈ្មោះ និងការចាប់ផ្តើមវគ្គថ្មី។</span></p>
+              <div class="poster-actions">
+                <a class="btn btn-outline" href="./photo_4_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener"><span class="lang-text" data-en="View Poster" data-km="មើលផ្ទាំងព័ត៌មាន">View Poster</span></a>
+                <a class="btn btn-primary" href="./photo_4_2026-06-12_19-56-08.jpg" download>
+                  <span class="lang-text" data-km="ទាញយករូបភាព" data-en="Download Image">ទាញយករូបភាព</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="poster-card reveal">
+            <a class="poster-image-link" href="./photo_5_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener" aria-label="View full school activities poster">
+              <div class="poster-thumb"><img src="./photo_5_2026-06-12_19-56-08.jpg" alt="IIA Education school activities poster" /></div>
+            </a>
+            <div class="poster-content">
+              <h3><span class="lang-text" data-km="សកម្មភាពសាលា" data-en="School Activities">សកម្មភាពសាលា</span></h3>
+              <p><span class="lang-text" data-km="សកម្មភាពសិស្ស និងព្រឹត្តិការណ៍សិក្សាប្រចាំឆ្នាំ។" data-en="Student activities and annual school events.">សកម្មភាពសិស្ស និងព្រឹត្តិការណ៍សិក្សាប្រចាំឆ្នាំ។</span></p>
+              <div class="poster-actions">
+                <a class="btn btn-outline" href="./photo_5_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener"><span class="lang-text" data-en="View Poster" data-km="មើលផ្ទាំងព័ត៌មាន">View Poster</span></a>
+                <a class="btn btn-primary" href="./photo_5_2026-06-12_19-56-08.jpg" download>
+                  <span class="lang-text" data-km="ទាញយករូបភាព" data-en="Download Image">ទាញយករូបភាព</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="poster-card reveal">
+            <a class="poster-image-link" href="./photo_6_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener" aria-label="View full study schedule poster">
+              <div class="poster-thumb"><img src="./photo_6_2026-06-12_19-56-08.jpg" alt="IIA Education study schedule poster" /></div>
+            </a>
+            <div class="poster-content">
+              <h3><span class="lang-text" data-km="តារាងពេលវេលាសិក្សា" data-en="Study Schedule / Timetable">តារាងពេលវេលាសិក្សា</span></h3>
+              <p><span class="lang-text" data-km="តារាងវេនសិក្សា និងព័ត៌មានពាក់ព័ន្ធការរៀន។" data-en="Study schedule and class shift information.">តារាងវេនសិក្សា និងព័ត៌មានពាក់ព័ន្ធការរៀន។</span></p>
+              <div class="poster-actions">
+                <a class="btn btn-outline" href="./photo_6_2026-06-12_19-56-08.jpg" target="_blank" rel="noopener"><span class="lang-text" data-en="View Poster" data-km="មើលផ្ទាំងព័ត៌មាន">View Poster</span></a>
+                <a class="btn btn-primary" href="./photo_6_2026-06-12_19-56-08.jpg" download>
+                  <span class="lang-text" data-km="ទាញយករូបភាព" data-en="Download Image">ទាញយករូបភាព</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -2210,8 +2954,11 @@
             <a href="tel:011549989"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>011 54 99 89</a>
             <a href="tel:070920212"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>070 92 02 12</a>
             <a href="mailto:phatsopheak7089@gmail.com"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>phatsopheak7089@gmail.com</a>
-            <!-- Client to confirm final address: posters also mention Koh Krabei -->
-            <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 10.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span class="lang-text" data-km="ភូមិក្បាលជ្រោយ សង្កាត់ព្រែកថ្មី រាជធានីភ្នំពេញ" data-en="Kbal Chroy Village, Prek Tnout Sangkat, Phnom Penh">ភូមិក្បាលជ្រោយ សង្កាត់ព្រែកថ្មី រាជធានីភ្នំពេញ</span></span>
+            <a href="https://www.google.com/maps?q=11.464402,104.975815&amp;ll=11.464402,104.975815&amp;z=16" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 10.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span class="lang-text" data-km="ភូមិកោះក្របី សង្កាត់ព្រែកថ្មី ខណ្ឌច្បារអំពៅ រាជធានីភ្នំពេញ" data-en="Koh Krabei Village, Prek Thmey Sangkat, Chbar Ampov District, Phnom Penh">ភូមិកោះក្របី សង្កាត់ព្រែកថ្មី ខណ្ឌច្បារអំពៅ រាជធានីភ្នំពេញ</span></a>
+            <span><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lang-text" data-km="ការិយាល័យចុះឈ្មោះបើករៀងរាល់ថ្ងៃ ចាប់ពីម៉ោង 7:00 ព្រឹក ដល់ 5:00 ល្ងាច" data-en="Registration office opens daily from 7:00 AM to 5:00 PM">ការិយាល័យចុះឈ្មោះបើករៀងរាល់ថ្ងៃ ចាប់ពីម៉ោង 7:00 ព្រឹក ដល់ 5:00 ល្ងាច</span></span>
+            <a href="https://www.google.com/maps?q=11.464402,104.975815&amp;ll=11.464402,104.975815&amp;z=16" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg><span class="lang-text" data-km="បើក Google Maps" data-en="Open in Google Maps">បើក Google Maps</span></a>
+            <a href="https://web.facebook.com/iiaedu?mibextid=wwXIfr&rdid=Bd4r5Dk7XfmqJoLb&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1Dj87dqChb%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M14 8h2.5V5H14c-2.5 0-4 1.5-4 4v2H8v3h2v7h3v-7h2.6L16 10h-3V9c0-.6.4-1 1-1Z" fill="currentColor"/></svg>Facebook</a>
+            <a href="https://t.me/iiainformation" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="m21 5-18 7 7 2 3 7 3-9 9-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 14 17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Telegram</a>
           </div>
         </div>
 
@@ -2263,7 +3010,10 @@
             <textarea id="message" name="message" data-km-placeholder="សូមប្រាប់ព័ត៌មានដែលអ្នកចង់ដឹង (កម្រិត វេន ឬសំណួរផ្សេងៗ)។" data-en-placeholder="Tell us what you'd like to know (level, shift, or other questions)." placeholder="សូមប្រាប់ព័ត៌មានដែលអ្នកចង់ដឹង (កម្រិត វេន ឬសំណួរផ្សេងៗ)។"></textarea>
           </div>
           <div class="form-actions">
-            <p class="form-note"><span class="lang-text" data-km="បំពេញព័ត៌មានខាងលើ ហើយសាលានឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។" data-en="Fill in the details above and the school will contact you shortly.">បំពេញព័ត៌មានខាងលើ ហើយសាលានឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។</span></p>
+            <div class="form-meta">
+              <p class="form-note"><span class="lang-text" data-km="បំពេញព័ត៌មានខាងលើ ហើយសាលានឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។" data-en="Fill in the details above and the school will contact you shortly.">បំពេញព័ត៌មានខាងលើ ហើយសាលានឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។</span></p>
+              <p class="form-demo-note"><span class="lang-text" data-km="សម្គាល់៖ ទម្រង់នេះសម្រាប់ Demo ប៉ុណ្ណោះ។ នៅពេលបង្ហោះជាផ្លូវការ អាចភ្ជាប់ទៅ Telegram ឬ Email របស់សាលា។" data-en="Note: This form is for demo preview only. On the live website, it can be connected to the school's Telegram or email.">សម្គាល់៖ ទម្រង់នេះសម្រាប់ Demo ប៉ុណ្ណោះ។ នៅពេលបង្ហោះជាផ្លូវការ អាចភ្ជាប់ទៅ Telegram ឬ Email របស់សាលា។</span></p>
+            </div>
             <button class="btn btn-primary" type="submit"><span class="lang-text" data-km="ផ្ញើសំណើចុះឈ្មោះ" data-en="Send Enrollment Inquiry">ផ្ញើសំណើចុះឈ្មោះ</span></button>
           </div>
         </form>
@@ -2283,21 +3033,14 @@
 
       <div class="footer-grid">
         <div>
-          <img class="site-logo-footer" src="Client/C001%20-%20IIA%20Edu/iiA%20logo%20new%2002.png" data-km-alt="រូបសញ្ញា សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="iLearning International Academy logo" alt="រូបសញ្ញា សាលាអាយលើននីង អន្តរជាតិ" />
+          <img class="site-logo-footer" src="./iiA%20logo%20new%2002.png" data-km-alt="រូបសញ្ញា សាលាអាយលើននីង អន្តរជាតិ" data-en-alt="iLearning International Academy logo" alt="រូបសញ្ញា សាលាអាយលើននីង អន្តរជាតិ" />
           <h3><span class="lang-text" data-km="សាលាអាយលើននីង អន្តរជាតិ" data-en="iLearning International Academy">សាលាអាយលើននីង អន្តរជាតិ</span></h3>
           <p><span class="lang-text" data-km="ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ — ការអប់រំខ្មែរ K–6 ភាសាអង់គ្លេស Oxford Pre-K ដល់ Advanced និងកម្មវិធីអភិវឌ្ឍសិស្ស។" data-en="Knowledge · Morality · Vision — Khmer K–6, Oxford English Pre-K to Advanced, and student development programs.">ចំណេះដឹង · សីលធម៌ · ទស្សនវិស័យ — ការអប់រំខ្មែរ K–6 ភាសាអង់គ្លេស Oxford Pre-K ដល់ Advanced និងកម្មវិធីអភិវឌ្ឍសិស្ស។</span></p>
           <div class="footer-social" aria-label="Social media">
-            <!-- data-social-url: replace href="#" with client URLs -->
-            <a href="#" data-social-url="facebook" aria-label="Facebook">
+            <a href="https://web.facebook.com/iiaedu?mibextid=wwXIfr&rdid=Bd4r5Dk7XfmqJoLb&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1Dj87dqChb%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr#" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h2.5V5H14c-2.5 0-4 1.5-4 4v2H8v3h2v7h3v-7h2.6L16 10h-3V9c0-.6.4-1 1-1Z" fill="currentColor"/></svg>
             </a>
-            <a href="#" data-social-url="instagram" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            </a>
-            <a href="#" data-social-url="youtube" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12s0-2.2-.3-3.2c-.2-.8-.8-1.4-1.6-1.6C18.8 7 12 7 12 7s-6.8 0-8.1.2c-.8.2-1.4.8-1.6 1.6C2 9.8 2 12 2 12s0 2.2.3 3.2c.2.8.8 1.4 1.6 1.6C5.2 17 12 17 12 17s6.8 0 8.1-.2c.8-.2 1.4-.8 1.6-1.6.3-1 .3-3.2.3-3.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m10 9.5 5 2.5-5 2.5V9.5Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" data-social-url="telegram" aria-label="Telegram">
+            <a href="https://t.me/iiainformation" target="_blank" rel="noopener" aria-label="Telegram">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 5-18 7 7 2 3 7 3-9 9-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 14 17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </a>
           </div>
@@ -2328,7 +3071,7 @@
             <a href="tel:011549989">011 54 99 89</a>
             <a href="tel:070920212">070 92 02 12</a>
             <a href="mailto:phatsopheak7089@gmail.com">phatsopheak7089@gmail.com</a>
-            <a href="#contact"><span class="lang-text" data-km="ភូមិក្បាលជ្រោយ ព្រែកថ្មី ភ្នំពេញ" data-en="Kbal Chroy, Prek Tnout, Phnom Penh">ភូមិក្បាលជ្រោយ ព្រែកថ្មី ភ្នំពេញ</span></a>
+            <a href="https://www.google.com/maps?q=11.464402,104.975815&amp;ll=11.464402,104.975815&amp;z=16" target="_blank" rel="noopener"><span class="lang-text" data-km="ភូមិកោះក្របី សង្កាត់ព្រែកថ្មី ខណ្ឌច្បារអំពៅ រាជធានីភ្នំពេញ" data-en="Koh Krabei Village, Prek Thmey Sangkat, Chbar Ampov District, Phnom Penh">ភូមិកោះក្របី សង្កាត់ព្រែកថ្មី ខណ្ឌច្បារអំពៅ រាជធានីភ្នំពេញ</span></a>
           </div>
         </div>
         <div>
@@ -2377,7 +3120,7 @@
         </div>
       </div>
       <div class="poster-lightbox-stage">
-        <img id="posterLightboxImage" src="" alt="" />
+        <img id="posterLightboxImage" alt="" />
       </div>
     </div>
   </div>
@@ -2395,7 +3138,41 @@
     const posterLightboxTitle = document.getElementById("posterLightboxTitle");
     const posterLightboxClose = document.getElementById("posterLightboxClose");
     const posterDownload = document.getElementById("posterDownload");
-    const posterCards = document.querySelectorAll(".gallery-item.poster");
+    const posterCards = document.querySelectorAll(".gallery-item");
+    const themeToggle = document.getElementById("themeToggle");
+    const THEME_KEY = "iia-theme";
+
+    function getCurrentLang() {
+      return document.body.classList.contains("lang-en") ? "en" : "km";
+    }
+
+    function getCurrentTheme() {
+      return document.body.classList.contains("theme-dark") ? "dark" : "light";
+    }
+
+    function updateThemeToggle(theme) {
+      if (!themeToggle) return;
+      const isDark = theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      const icon = themeToggle.querySelector(".theme-icon");
+      const label = themeToggle.querySelector(".theme-label");
+      if (icon) icon.textContent = isDark ? "☀" : "☾";
+      if (label) {
+        label.dataset.km = isDark ? "ភ្លឺ" : "ងងឹត";
+        label.dataset.en = isDark ? "Light" : "Dark";
+        label.textContent = getCurrentLang() === "en" ? label.dataset.en : label.dataset.km;
+      }
+    }
+
+    function applyTheme(theme, persist = true) {
+      const isDark = theme === "dark";
+      document.body.classList.toggle("theme-dark", isDark);
+      document.body.classList.toggle("theme-light", !isDark);
+      if (persist) {
+        try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+      }
+      updateThemeToggle(theme);
+    }
 
     function openMenu() {
       mobileMenu.classList.add("active");
@@ -2444,7 +3221,7 @@
       document.body.classList.remove("lightbox-open");
       window.setTimeout(() => {
         if (!posterLightbox.classList.contains("active")) {
-          posterLightboxImage.src = "";
+          posterLightboxImage.removeAttribute("src");
           posterLightboxImage.alt = "";
         }
       }, 180);
@@ -2531,13 +3308,26 @@
       btnEn.classList.toggle("active", isEn);
       btnKm.setAttribute("aria-pressed", String(!isEn));
       btnEn.setAttribute("aria-pressed", String(isEn));
+      updateThemeToggle(getCurrentTheme());
       try { localStorage.setItem("ilia-lang", lang); } catch (e) {}
     }
 
     btnKm.addEventListener("click", () => setLang("km"));
     btnEn.addEventListener("click", () => setLang("en"));
 
-    // Initialize — restore saved preference, default to Khmer
+    // Initialize — restore saved theme, then language (default Khmer)
+    (function () {
+      let savedTheme = "light";
+      try { savedTheme = localStorage.getItem(THEME_KEY) || "light"; } catch (e) {}
+      applyTheme(savedTheme, false);
+    })();
+
+    themeToggle?.addEventListener("click", () => {
+      const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
+      applyTheme(nextTheme, true);
+    });
+
+    // Initialize — restore saved language preference, default to Khmer
     (function () {
       let saved = "km";
       try { saved = localStorage.getItem("ilia-lang") || "km"; } catch (e) {}
